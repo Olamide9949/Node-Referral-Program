@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Program</title>
+</head>
+<body>
+    <h1> Referral Links </h1>
+    <form action="/refer" method="POST">
+        <label for="uname">Username</label>
+        <input type="text" name="uname" id="uname"/>
+        <button type="submit">Generate Referral Code</button>
+    </form>
+
+    <table>
+        <thead>
+           <tr>
+            <th>User ID</th>
+            <th>Referral Links</th>
+           </tr>
+        </thead>
+        <tbody>
+            <%referrals.forEach(referrer => { %>
+            <tr>
+                <td> <%= referrer.username %> </td>
+                <td><a href="<%= referrer.referralLink %>"><%= referrer.referralLink %></a></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
